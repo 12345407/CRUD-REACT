@@ -7,7 +7,8 @@ const initialValue = {
     name: '',
     username: '',
     email: '',
-    phone: ''
+    phone: '',
+    photo: ''
 }
 
 const useStyles = makeStyles({
@@ -22,7 +23,7 @@ const useStyles = makeStyles({
 
 const AddUser = () => {
     const [user, setUser] = useState(initialValue);
-    const { name, username, email, phone } = user;
+    const { name, username, email, phone, photo } = user;
     const classes = useStyles();
     let history = useHistory();
 
@@ -54,6 +55,10 @@ const AddUser = () => {
             <FormControl>
                 <InputLabel htmlFor="my-input">Phone</InputLabel>
                 <Input onChange={(e) => onValueChange(e)} name='phone' value={phone} id="my-input" />
+            </FormControl>
+            <FormControl>
+                <InputLabel htmlFor="my-input">Photo</InputLabel>
+                <Input type="file" onChange={(e) => onValueChange(e)} name='photo' value={photo}  id="my-input" />
             </FormControl>
             <FormControl>
                 <Button variant="contained" color="primary" onClick={() => addUserDetails()}>Add User</Button>
